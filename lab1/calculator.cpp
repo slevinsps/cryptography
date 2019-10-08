@@ -57,7 +57,11 @@ int calculate(double a, char op, double b, double *ans){
       *ans = mul(a, b);
       break;
     case '/':
-      *ans = div(a, b);
+      if (b == 0) {
+        err = -2;
+      } else {
+        *ans = div(a, b);
+      }
       break;
     case '-':
       *ans = sub(a, b);
